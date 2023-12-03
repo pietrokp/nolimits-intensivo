@@ -1,0 +1,380 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    font-family: Mulish, 'sans serif';
+
+    --bg-color-pink: #f9f4fb;
+    --bg-color-purple: linear-gradient(96deg, #343193 0%, #302C63 99.68%);
+
+    --font-color-pink: #B52184;
+    --font-color-purple: #312D64;
+
+    --border-color: #312D64;
+}
+
+body {
+    background-color: var(--bg-color-pink);
+}
+
+main {
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+
+    height: calc(100vh - 6rem);
+}
+
+main::-webkit-scrollbar {
+    display: none;
+}
+
+#app {
+    width: 100vw;
+    margin: auto;
+}
+
+#home {
+    text-align: center;
+}
+
+.home-text {
+    margin:  2rem 0 3.5rem;
+}
+
+#astronaut {
+    width: 36.5rem;
+}
+
+#home button {
+    width: 5.8rem;
+    height: 10.5rem;
+    background-image: url(./assets/arrow.svg);
+    border-radius: 999rem;
+    border: none;
+}
+
+#home a img {
+    width: 5.8rem;
+    height: 10.5rem;
+}
+
+#cards {
+    background: var(--bg-color-purple);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 3rem 0 3rem;
+    margin: 9rem 0 8rem;
+}
+
+.card {
+    width: 34rem;
+    height: auto;
+
+    background-color: white;
+
+    margin: 2.6rem auto 2.6rem;
+    padding: 2.5rem;
+
+    border-radius: 2rem;
+}
+
+.card img {
+    height: 8rem;
+    width: 8rem;
+}
+
+form {
+    width: 43rem;
+    margin: 0 auto 6.5rem;
+}
+
+::placeholder,
+input,
+textarea {
+    color: var(--font-color-purple);
+
+    font-family: Mulish, 'sans serif';
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+::placeholder {
+    opacity: 0.9;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+input {
+    border: 2px solid var(--border-color);
+    border-radius: 1.6rem;
+    height: 5rem;
+    padding-left: 5rem;
+
+    background-image: url(./assets/person.svg);
+    background-repeat: no-repeat;
+    background-position: left 1.5rem top 50%;
+}
+
+.input-email {
+    background-image: url(./assets/email.svg);
+}
+
+textarea {
+    resize: none;
+
+    border: 2px solid var(--border-color);
+    border-radius: 1.6rem;
+    height: 12.5rem;
+
+    padding: 2rem 0 0 1.5rem;
+}
+
+.input-submit {
+    background: var(--bg-color-purple);
+    height: 4.2rem;
+    width: 15rem;
+    padding: 0;
+
+    border: none;
+    border-radius: 1.6rem;
+
+    font-family: 'Mulish';
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.input-submit:hover,
+#home button:hover  {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+#stars {
+    display: none;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    background: var(--bg-color-purple);
+
+    width: 100vw;
+    height: 6rem;
+}
+
+/* fonts */
+h1 {
+    color: var(--font-color-pink);
+    font-size: 3.2rem;
+    font-weight: 900;
+}
+
+h2 {
+    color: var(--font-color-pink);
+    font-size: 2.9rem;
+    font-weight: 900;
+}
+
+p {
+    color: var(--font-color-purple);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.card p {
+    font-size: 1.6rem;
+}
+
+.card h2 {
+    margin: 2rem 0 2rem;
+}
+
+span {
+    color: white;
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+
+/* animations */
+@keyframes astronaut {
+    0% {
+        transform: translateY(-100%);
+        opacity: .1;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes expand-text {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+@keyframes wobble {
+    0%,
+    100% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+    }
+    15% {
+      -webkit-transform: translateX(-30px) rotate(-6deg);
+              transform: translateX(-30px) rotate(-6deg);
+    }
+    30% {
+      -webkit-transform: translateX(15px) rotate(6deg);
+              transform: translateX(15px) rotate(6deg);
+    }
+    45% {
+      -webkit-transform: translateX(-15px) rotate(-3.6deg);
+              transform: translateX(-15px) rotate(-3.6deg);
+    }
+    60% {
+      -webkit-transform: translateX(9px) rotate(2.4deg);
+              transform: translateX(9px) rotate(2.4deg);
+    }
+    75% {
+      -webkit-transform: translateX(-6px) rotate(-1.2deg);
+              transform: translateX(-6px) rotate(-1.2deg);
+    }
+}
+
+#astronaut {
+    animation: astronaut 6s;
+}
+
+.home-text h1,
+.home-text p {
+    animation: expand-text 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.card:hover {
+    animation: wobble 1s both;
+    scale: 1.05;
+}
+
+/* desktop */
+@media (min-width: 1270px) {
+    #home {
+        width: 100vw;
+        min-height: 80rem;
+
+        display: grid;
+        grid-template-areas: 
+        "A B" 
+        "A B" 
+        "C B";
+
+        justify-content: space-around;
+
+    }
+
+    #astronaut {
+        grid-area: B;
+        height: 73rem;
+        width: 73rem;
+    }
+
+    .home-text {
+        grid-area: A;
+    }
+
+    #home button {
+        grid-area: C;
+    }
+
+    #cards {
+        display: grid;
+        grid-template-areas: "card1 card2 card3";
+        min-height: 60rem;
+
+        margin: 0 auto 0;
+    }
+
+    #cards p {
+        font-size: 2rem;
+    }
+
+    #card1 {
+        grid-area: card1;
+    }
+
+    #card2 {
+        grid-area: card2;
+    }
+
+    #card3 {
+        grid-area: card3;
+    }
+
+    #message-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100vw;
+        margin: 0;
+    }
+
+    #stars {
+        display: flex;
+        max-height: 70rem;
+        justify-self: end;
+    }
+
+    #home {
+        margin-bottom: 8rem;
+    }
+
+    .home-text {
+        scale: 2;
+        margin-top: 40rem;
+        padding-left: 10rem;
+    }
+
+    .form-container {
+        display: flex;
+        place-self: center;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .form-container h1 {
+        scale: 1.2;
+        margin-left: 23.5rem;
+    }
+
+    input,
+    textarea {
+        width: 80rem;
+        margin: 0 15rem 0 15rem;
+    }
+}
+
